@@ -14,3 +14,7 @@ class Conta:
     
     def getSaldo(self):
         return self.saldo
+
+    def credito(self, numero, valor):
+        numero.saldo += valor
+        print("Novo Saldo:", self.saldo)
