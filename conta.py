@@ -17,4 +17,8 @@ class Conta:
 
     def credito(self, numero, valor):
         numero.saldo += valor
-        print("Novo Saldo:", self.saldo)
+        print("Novo Saldo:", numero.saldo)
+    
+    def debito(self, numero, valor):
+        numero.saldo -= valor
+        print("Novo Saldo:", numero.saldo)
