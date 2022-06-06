@@ -40,6 +40,9 @@ while (not resposta == 'N'):
         valor = int(input("Digite o valor do dédito:"))
         for i in range (len(contas)):
             if number == contas[i].numero:
+                if valor>contas[i].saldo or contas[i].saldo<0:
+                    print("Saldo insuficiente")    
+                    break
                 contas[i].saldo -= valor
                 print("Saldo:", contas[i].saldo)
     
@@ -49,11 +52,14 @@ while (not resposta == 'N'):
         valor = int(input("Digite o valor da transferência:"))
         for i in range(len(contas)):
             if contaOrigem == contas[i].numero:
+                if valor>contas[i].saldo or contas[i].saldo<0:
+                    print("Saldo insuficiente")    
+                    break
                 contas[i].saldo -= valor
-        for i in range(len(contas)):
-            if contaDestino == contas[i].numero:
-                contas[i].saldo += valor
-        print("Transferência Realizada")
+                for j in range(len(contas)):
+                    if contaDestino == contas[j].numero:
+                        contas[j].saldo += valor
+                        print("Transferência Realizada")
         
     resposta = input("Deseja fazer outra operação? S/N:")
     
