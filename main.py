@@ -30,6 +30,9 @@ while (not resposta == 'N'):
     if escolha ==3:
         number = int(input("Digite o número da conta:"))
         valor = int(input("Digite o valor do crédito:"))
+        while valor<0:
+            print("Valor incorreto, digite novamente\n")
+            valor = int(input("Digite o valor do crédito:"))
         for i in range (len(contas)):
             if number == contas[i].numero:
                 contas[i].saldo+= valor
@@ -37,7 +40,10 @@ while (not resposta == 'N'):
                 
     if escolha ==4:
         number = int(input("Digite o número da conta:"))
-        valor = int(input("Digite o valor do dédito:"))
+        valor = int(input("Digite o valor do débito:"))
+        while valor<0:
+            print("Valor incorreto, digite novamente\n")
+            valor = int(input("Digite o valor do débito:"))
         for i in range (len(contas)):
             if number == contas[i].numero:
                 if valor>contas[i].saldo or contas[i].saldo<0:
@@ -50,6 +56,9 @@ while (not resposta == 'N'):
         contaOrigem = int(input("Digite o número da conta de origem:"))
         contaDestino = int(input("Digite o número da conta de destino:"))
         valor = int(input("Digite o valor da transferência:"))
+        while valor<0:
+            print("Valor incorreto, digite novamente\n")
+            valor = int(input("Digite o valor da transferência:"))
         for i in range(len(contas)):
             if contaOrigem == contas[i].numero:
                 if valor>contas[i].saldo or contas[i].saldo<0:
